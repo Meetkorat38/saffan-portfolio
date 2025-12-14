@@ -1,20 +1,33 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Saffan Portfolio Website
 
-# Run and deploy your AI Studio app
+A brutalist-style portfolio website for a Graphic Designer, built with React, Vite, and Cloudinary.
 
-This contains everything you need to run your app locally.
+## Tech Stack
+- **React**: UI library
+- **Vite**: Build tool and dev server
+- **Tailwind CSS**: Styling
+- **Cloudinary**: Image management and optimization
 
-View your app in AI Studio: https://ai.studio/apps/drive/1zoJQFuOf7DKTyqSxnZmitaJVs09PupLT
+## Setup
 
-## Run Locally
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-**Prerequisites:**  Node.js
+2. **Environment Variables:**
+   Create a `.env` (or `.env.local`) file:
+   ```env
+   VITE_ADMIN_PASSWORD=your_password
+   VITE_CLOUDINARY_CLOUD_NAME=your_cloud_name
+   VITE_CLOUDINARY_UPLOAD_PRESET=your_unsigned_preset
+   ```
 
+3. **Run locally:**
+   ```bash
+   npm run dev
+   ```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Admin Access
+- Access the admin dashboard at `/admin`.
+- Default password is configured in your `.env`.
