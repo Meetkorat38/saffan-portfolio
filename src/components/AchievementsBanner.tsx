@@ -11,7 +11,7 @@ export const AchievementsBanner: React.FC = () => {
        
        <div className="flex-1 bg-paper text-ink p-2 transform md:-skew-x-12 border-2 border-white md:border-transparent">
           <div className="font-bold text-center uppercase tracking-tight transform md:skew-x-12 flex items-center justify-center gap-2">
-            <span>Poster Featured on Blank Poster Vol.1</span>
+            <span>Completing Design without touching deadlines</span>
           </div>
        </div>
     </section>

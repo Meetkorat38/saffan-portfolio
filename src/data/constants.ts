@@ -39,22 +39,16 @@ export const projects: Project[] = [
 ];
 
 export const education: EducationItem[] = [
-  { school: 'School of Design', degree: 'Bachelor of Arts, Mumbai', gpa: '8.86' },
-  { school: 'Institute of Art', degree: 'Diploma in Graphic Design', gpa: '4.65' },
-  { school: 'Creative High', degree: 'Visual Arts Stream', gpa: '4.75' },
+  { school: 'Information Technology', degree: 'Bachelor of Engineering, GTU', gpa: '7.65' },
 ];
 
 export const experience: ExperienceItem[] = [
-  { role: 'Senior Designer at Studio X', period: '2023 - Present' },
-  { role: 'Freelance Brand Designer', period: '2021 - 2023' },
-  { role: 'Design Intern at Ogilvy', period: '2020 - 2021' },
+  { role: 'Freelancing', period: '2025 - Present' },
 ];
 
 export const softwares: Software[] = [
+  { name: 'Canva', abbr: 'Ca' },
+  { name: 'AI Images and editing', abbr: 'AI' },
   { name: 'Photoshop', abbr: 'Ps' },
-  { name: 'Illustrator', abbr: 'Ai' },
-  { name: 'InDesign', abbr: 'Id' },
-  { name: 'Figma', abbr: 'Fi' },
-  { name: 'After Effects', abbr: 'Ae' },
-  { name: 'Blender', abbr: 'Bl' },
+  { name: 'Capcut editing', abbr: 'Cc' },
 ];

@@ -12,7 +12,7 @@ interface SEOProps {
 
 export default function SEO({
   title,
-  description = "Graphic Designer based in Mumbai. Specialized in brand identity, print design, and digital art.",
+  description = "Graphic Designer based in Ahmedabad. Specialized in brand identity, print design, and digital art.",
   name = "Memon Saffan",
   type = "website",
   image = "https://res.cloudinary.com/daz2n7hec/image/upload/v1714555891/portfolio/og-image.jpg", // Replace with a real default image

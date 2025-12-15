@@ -17,7 +17,7 @@ export const InfoGrid: React.FC = () => {
                <div className="absolute left-0 top-1.5 w-3.5 h-3.5 bg-ink rounded-full border-2 border-white"></div>
                <h4 className="font-bold text-lg leading-tight">{item.school}</h4>
                <p className="text-sm italic text-gray-600">{item.degree}</p>
-               <p className="text-xs font-bold mt-1 bg-black text-white inline-block px-1">GPA: {item.gpa}</p>
+               <p className="text-xs font-bold mt-1 bg-black text-white inline-block px-1">CGPA: {item.gpa}</p>
              </li>
            ))}
         </ul>
@@ -53,7 +53,7 @@ export const InfoGrid: React.FC = () => {
         
         {/* Grid Decoration */}
         <div className="mt-8 border-2 border-ink p-2 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAgNDBMMDQgMEgwIiBmaWxsPSJub25lIiBzdHJva2U9IiNlNWU1ZTUiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] h-24 relative flex items-center justify-center">
-            <span className="bg-white px-2 py-1 border border-ink text-xs font-bold uppercase rotate-3">Adobe Creative Suite</span>
+            <span className="bg-white px-2 py-1 border border-ink text-xs font-bold uppercase rotate-3">AI + Visuals editing</span>
         </div>
       </div>
     </section>

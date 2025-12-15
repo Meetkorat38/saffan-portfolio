@@ -34,7 +34,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
       {/* Top Stickers (Desktop Only) */}
       <div className="hidden md:block">
          <Sticker text="For Hire" rotate="-rotate-6" className="top-8 left-8" />
-         <Sticker text="22 Years Old" subtext="Mumbai" rotate="rotate-3" className="top-6 right-8" />
+         <Sticker text="23 Years Old" subtext="Ahmedabad" rotate="rotate-3" className="top-6 right-8" />
       </div>
 
       {/* === MOBILE HERO (POSTER STYLE) === */}
