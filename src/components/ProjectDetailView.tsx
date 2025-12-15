@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { ArrowLeft, ArrowUpRight, X } from 'lucide-react';
 import { Project } from '../types';
 import CloudinaryImage from './ui/CloudinaryImage';
+import SEO from './SEO';
 
 const ProjectDetailView: React.FC<{ project: Project, onClose: () => void }> = ({ project, onClose }) => {
   useEffect(() => {
@@ -10,6 +11,11 @@ const ProjectDetailView: React.FC<{ project: Project, onClose: () => void }> = (
 
   return (
     <div className="min-h-screen bg-paper text-ink relative z-50 animate-in slide-in-from-bottom duration-300">
+      <SEO 
+        title={project.title} 
+        description={project.description}
+        image={project.image}
+      />
       {/* Navigation Bar */}
       <div className="sticky top-0 bg-paper z-40 border-b-4 border-ink p-4 flex justify-between items-center shadow-md">
         <button 

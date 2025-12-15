@@ -68,7 +68,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
          <div className="text-center mb-10">
             <p className="font-handwriting italic text-2xl text-gray-500 mb-2">My name is</p>
             <h1 className="font-oswald font-black text-7xl uppercase leading-[0.85] tracking-tight">
-               Memoan<br/>Saffan
+               Memon<br/>Saffan
             </h1>
          </div>
 
@@ -123,7 +123,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
 
           <div className="text-center">
             <p className="font-handwriting text-xl italic mb-1">My name is</p>
-            <h1 className="font-oswald font-bold text-4xl uppercase leading-none">Memmoan<br/>Saffan</h1>
+            <h1 className="font-oswald font-bold text-4xl uppercase leading-none">Memon<br/>Saffan</h1>
           </div>
         </div>
 
@@ -142,11 +142,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
             <ul className="text-sm font-bold space-y-1 px-2 pb-2 text-left">
               <li className="flex items-center justify-between border-b border-gray-300 pb-1">
                 <span>Email:</span>
-                <a href="mailto:szm@gmail.com" className="hover:underline">szm@gmail.com</a>
+                <a href="mailto:szm.memon@gmail.com" className="hover:underline">szm.memon@gmail.com</a>
               </li>
               <li className="flex items-center justify-between border-b border-gray-300 pb-1">
-                <span>Behance:</span>
-                <a href="#" className="hover:underline">@memonsaffan</a>
+                <span>Phone:</span>
+                <a href="tel:8128665702" className="hover:underline">8128665702</a>
               </li>
               <li className="flex items-center justify-between border-b border-gray-300 pb-1">
                 <span>Instagram:</span>
@@ -154,7 +154,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
               </li>
               <li className="flex items-center justify-between">
                 <span>LinkedIn:</span>
-                <a href="#" className="hover:underline">@memonsaffan</a>
+                <a href="https://www.linkedin.com/in/memon-saffan-607a65277/" target="_blank" rel="noopener noreferrer" className="hover:underline">@memmon-saffan</a>
               </li>
             </ul>
           </div>

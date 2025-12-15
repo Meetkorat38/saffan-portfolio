@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { Project } from './types';
 import { AuthProvider } from './context/AuthContext';
 import { ProjectProvider, useProjects } from './context/ProjectContext';
@@ -23,6 +24,7 @@ import ProjectForm from './components/admin/ProjectForm';
 
 import LoadingScreen from './components/LoadingScreen';
 import CloudinaryImage from './components/ui/CloudinaryImage';
+import SEO from './components/SEO';
 
 // Wrapper for Public Portfolio to consume Project Context
 const PublicPortfolio: React.FC = () => {
@@ -48,6 +50,7 @@ const PublicPortfolio: React.FC = () => {
     
       return (
         <div className="min-h-screen bg-[#e8e8e3] text-ink font-archivo relative overflow-hidden selection:bg-black selection:text-white">
+          <SEO title="Home" />
           <div className="fixed inset-0 pointer-events-none z-50 bg-noise mix-blend-multiply opacity-40"></div>
           <ContactDrawer isOpen={isContactDrawerOpen} onClose={() => setIsContactDrawerOpen(false)} />
           
@@ -116,31 +119,33 @@ const App: React.FC = () => {
 }
 
 const RouterWrapper = () => (
-    <BrowserRouter>
-      <AuthProvider>
-        <ProjectProvider>
-            <Routes>
-                {/* Public Route */}
-                <Route path="/" element={<PublicPortfolio />} />
-
-                {/* Admin Routes */}
-                <Route path="/admin/login" element={<LoginPage />} />
-                
-                <Route path="/admin" element={
-                    <AdminRoute>
-                        <DashboardLayout />
-                    </AdminRoute>
-                }>
-                    <Route path="dashboard" element={<ProjectList />} />
-                    <Route path="projects/new" element={<ProjectForm />} />
-                    <Route path="projects/edit/:id" element={<ProjectForm />} />
-                    {/* Default redirect to dashboard */}
-                    <Route index element={<Navigate to="dashboard" replace />} />
-                </Route>
-            </Routes>
-        </ProjectProvider>
-      </AuthProvider>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <AuthProvider>
+          <ProjectProvider>
+              <Routes>
+                  {/* Public Route */}
+                  <Route path="/" element={<PublicPortfolio />} />
+  
+                  {/* Admin Routes */}
+                  <Route path="/admin/login" element={<LoginPage />} />
+                  
+                  <Route path="/admin" element={
+                      <AdminRoute>
+                          <DashboardLayout />
+                      </AdminRoute>
+                  }>
+                      <Route path="dashboard" element={<ProjectList />} />
+                      <Route path="projects/new" element={<ProjectForm />} />
+                      <Route path="projects/edit/:id" element={<ProjectForm />} />
+                      {/* Default redirect to dashboard */}
+                      <Route index element={<Navigate to="dashboard" replace />} />
+                  </Route>
+              </Routes>
+          </ProjectProvider>
+        </AuthProvider>
+      </BrowserRouter>
+    </HelmetProvider>
 )
 
 export default App;

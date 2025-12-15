@@ -23,18 +23,18 @@ const ContactDrawer: React.FC<{ isOpen: boolean, onClose: () => void }> = ({ isO
                <ul className="font-archivo font-bold text-sm space-y-4">
                  <li className="flex justify-between items-center border-b border-gray-300 pb-2">
                    <span className="text-gray-600 uppercase">Email:</span>
-                   <a href="mailto:szm@gmail.com" className="hover:underline text-lg">szm@gmail.com</a>
+                   <a href="mailto:szm.memon@gmail.com" className="hover:underline text-lg">szm.memon@gmail.com</a>
                  </li>
                  <li className="flex justify-between items-center border-b border-gray-300 pb-2">
-                   <span className="text-gray-600 uppercase">Behance:</span>
-                   <a href="#" className="hover:underline text-lg">@memonsaffan</a>
-                 </li>
-                 <li className="flex justify-between items-center border-b border-gray-300 pb-2">
-                   <span className="text-gray-600 uppercase">Instagram:</span>
-                   <a href="#" className="hover:underline text-lg">@memonsaffan</a>
+                   <span className="text-gray-600 uppercase">Phone:</span>
+                   <a href="tel:8128665702" className="hover:underline text-lg">8128665702</a>
                  </li>
                  <li className="flex justify-between items-center">
                    <span className="text-gray-600 uppercase">LinkedIn:</span>
+                   <a href="https://www.linkedin.com/in/memon-saffan-607a65277/" target="_blank" rel="noopener noreferrer" className="hover:underline text-lg">@memmon-saffan</a>
+                 </li>
+                 <li className="flex justify-between items-center border-b border-gray-300 pb-2">
+                   <span className="text-gray-600 uppercase">Instagram:</span>
                    <a href="#" className="hover:underline text-lg">@memonsaffan</a>
                  </li>
                </ul>
