@@ -55,8 +55,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
          <div className="relative w-64 h-64 mb-10">
             <div className="absolute inset-0 rounded-full border-[6px] border-ink overflow-hidden z-10 bg-white shadow-hard">
                  <img 
-                    src="https://picsum.photos/400/400?grayscale" 
-                    alt="Profile" 
+                    src="/saffan%20image.webp" 
+                    alt="Memon Saffan" 
                     className="w-full h-full object-cover filter contrast-125"
                 />
             </div>
@@ -112,8 +112,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenContact }) => {
             <div className="absolute inset-0 bg-black rounded-full scale-110 group-hover:scale-125 transition-transform duration-500" 
                  style={{ clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' }}></div>
             <img 
-              src="https://picsum.photos/400/400?grayscale" 
-              alt="Profile" 
+              src="/saffan%20image.webp" 
+              alt="Memon Saffan" 
               className="w-full h-full object-cover rounded-full border-4 border-ink relative z-10 grayscale hover:grayscale-0 transition-all duration-500"
             />
             <div className="absolute top-10 -right-16 text-4xl font-handwriting rotate-12 z-20">

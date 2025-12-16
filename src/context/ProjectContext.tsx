@@ -1,59 +1,92 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Project } from '../types';
-import { projects as initialProjects } from '../data/constants';
+import { supabase } from '../lib/supabase';
 
 interface ProjectContextType {
   projects: Project[];
-  addProject: (project: Omit<Project, 'id'>) => void;
-  updateProject: (project: Project) => void;
-  deleteProject: (id: string) => void;
+  loading: boolean;
+  addProject: (project: Omit<Project, 'id'>) => Promise<void>;
+  updateProject: (project: Project) => Promise<void>;
+  deleteProject: (id: string) => Promise<void>;
 }
 
 const ProjectContext = createContext<ProjectContextType | undefined>(undefined);
 
 export const ProjectProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchProjects = async () => {
+    try {
+      setLoading(true);
+      const { data, error } = await supabase
+        .from('projects')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error('Error fetching projects:', error);
+      } else {
+        setProjects(data || []);
+      }
+    } catch (err) {
+      console.error('Unexpected error fetching projects:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    // Load projects from local storage or fallback to constants
-    const storedProjects = localStorage.getItem('portfolio_projects');
-    if (storedProjects) {
-      try {
-        setProjects(JSON.parse(storedProjects));
-      } catch (e) {
-        console.error("Failed to parse projects from local storage", e);
-        setProjects(initialProjects);
-      }
-    } else {
-      setProjects(initialProjects);
-    }
+    fetchProjects();
   }, []);
 
-  useEffect(() => {
-    // Sync projects to local storage whenever they change
-    if (projects.length > 0) {
-      localStorage.setItem('portfolio_projects', JSON.stringify(projects));
+  const addProject = async (newProjectData: Omit<Project, 'id'>) => {
+    try {
+      // Optimistic update or refetch? Refetch is safer for ID syncing.
+      const { error } = await supabase
+        .from('projects')
+        .insert([newProjectData]);
+
+      if (error) throw error;
+      await fetchProjects();
+    } catch (err) {
+      console.error('Error adding project:', err);
+      alert('Failed to add project');
     }
-  }, [projects]);
-
-  const addProject = (newProjectData: Omit<Project, 'id'>) => {
-    const newProject: Project = {
-      ...newProjectData,
-      id: Date.now().toString(), // Simple ID generation
-    };
-    setProjects(prev => [newProject, ...prev]);
   };
 
-  const updateProject = (updatedProject: Project) => {
-    setProjects(prev => prev.map(p => p.id === updatedProject.id ? updatedProject : p));
+  const updateProject = async (updatedProject: Project) => {
+    try {
+      const { error } = await supabase
+        .from('projects')
+        .update(updatedProject)
+        .eq('id', updatedProject.id);
+
+      if (error) throw error;
+      await fetchProjects();
+    } catch (err) {
+      console.error('Error updating project:', err);
+      alert('Failed to update project');
+    }
   };
 
-  const deleteProject = (id: string) => {
-    setProjects(prev => prev.filter(p => p.id !== id));
+  const deleteProject = async (id: string) => {
+    try {
+      const { error } = await supabase
+        .from('projects')
+        .delete()
+        .eq('id', id);
+
+      if (error) throw error;
+      setProjects(prev => prev.filter(p => p.id !== id));
+    } catch (err) {
+      console.error('Error deleting project:', err);
+      alert('Failed to delete project');
+    }
   };
 
   return (
-    <ProjectContext.Provider value={{ projects, addProject, updateProject, deleteProject }}>
+    <ProjectContext.Provider value={{ projects, loading, addProject, updateProject, deleteProject }}>
       {children}
     </ProjectContext.Provider>
   );

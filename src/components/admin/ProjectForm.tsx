@@ -9,6 +9,7 @@ const ProjectForm: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { projects, addProject, updateProject } = useProjects();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const [formData, setFormData] = useState<Partial<Project>>({
     title: '',
@@ -33,19 +34,26 @@ const ProjectForm: React.FC = () => {
     }
   }, [id, projects]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.title || !formData.category || !formData.image) {
       alert('Please fill in all required fields (Cover Image, Title, Category)');
       return;
     }
 
-    if (id) {
-      updateProject({ ...formData, id } as Project);
-    } else {
-      addProject(formData as Omit<Project, 'id'>);
+    setIsSubmitting(true);
+    try {
+      if (id) {
+        await updateProject({ ...formData, id } as Project);
+      } else {
+        await addProject(formData as Omit<Project, 'id'>);
+      }
+      navigate('/admin/dashboard');
+    } catch (error) {
+      console.error("Failed to save project", error);
+    } finally {
+      setIsSubmitting(false);
     }
-    navigate('/admin/dashboard');
   };
 
   const handleAddGalleryImage = (url: string) => {
@@ -233,9 +241,10 @@ const ProjectForm: React.FC = () => {
 
             <button 
                 type="submit"
-                className="w-full bg-ink text-paper py-4 font-bold font-oswald text-xl uppercase tracking-wider hover:bg-paper hover:text-ink border-2 border-transparent hover:border-ink transition-all shadow-md active:translate-y-1 flex justify-center items-center gap-2"
+                disabled={isSubmitting}
+                className="w-full bg-ink text-paper py-4 font-bold font-oswald text-xl uppercase tracking-wider hover:bg-paper hover:text-ink border-2 border-transparent hover:border-ink transition-all shadow-md active:translate-y-1 flex justify-center items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-                <Save className="w-5 h-5" /> Save Project
+                <Save className="w-5 h-5" /> {isSubmitting ? 'Saving...' : 'Save Project'}
             </button>
          </div>
 
