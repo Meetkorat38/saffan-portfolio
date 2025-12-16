@@ -14,6 +14,17 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      build: {
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+              'cloudinary-vendor': ['@cloudinary/react', '@cloudinary/url-gen'],
+              'utils-vendor': ['axios', 'clsx', 'tailwind-merge']
+            }
+          }
+        }
       }
     };
 });
